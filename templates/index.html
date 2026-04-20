@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admission Chatbot</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #ece5dd;
+            min-height: 100vh;
+        }
+
+        .chat-widget {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 9999;
+        }
+
+        .chat-toggle {
+            width: 58px;
+            height: 58px;
+            border: none;
+            border-radius: 50%;
+            background: #0b4a7a;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .chat-wrapper {
+            width: 360px;
+            height: 520px;
+            margin-bottom: 12px;
+            background: #fff;
+            display: none;
+            flex-direction: column;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            border: 1px solid #d9d9d9;
+        }
+
+        .chat-wrapper.open {
+            display: flex;
+        }
+
+        .chat-header {
+            background: #0b4a7a;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .chat-header h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .chat-header p {
+            margin: 5px 0 0;
+            font-size: 12px;
+        }
+
+        .chatbox {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background: #e5ddd5;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            margin: 8px 0;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+
+        .user {
+            background: #dcf8c6;
+            align-self: flex-end;
+            text-align: right;
+        }
+
+        .bot {
+            background: white;
+            align-self: flex-start;
+        }
+
+        .input-area {
+            display: flex;
+            padding: 10px;
+            background: #f0f0f0;
+        }
+
+        .input-area input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .input-area button {
+            margin-left: 10px;
+            padding: 10px 15px;
+            border: none;
+            background: #0b4a7a;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .input-area button:hover {
+            background: #0b4a7a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-widget">
+    <div id="chatWrapper" class="chat-wrapper">
+        <div class="chat-header">
+            <h2>Assistant</h2>
+            <p>Ask about admission related queries</p>
+        </div>
+
+        <div id="chatbox" class="chatbox"></div>
+
+        <div class="input-area">
+            <input id="msg" placeholder="Type your message..." onkeypress="handleKey(event)" />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <button id="chatToggle" class="chat-toggle" onclick="toggleChat()" aria-label="Open chatbot">💬</button>
+</div>
+
+<script>
+const chatWrapper = document.getElementById("chatWrapper");
+const chatToggle = document.getElementById("chatToggle");
+const chatbox = document.getElementById("chatbox");
+let hasShownWelcome = false;
+
+function toggleChat() {
+    chatWrapper.classList.toggle("open");
+    const isOpen = chatWrapper.classList.contains("open");
+    chatToggle.innerText = isOpen ? "×" : "💬";
+    chatToggle.setAttribute("aria-label", isOpen ? "Close chatbot" : "Open chatbot");
+
+    if (isOpen) {
+        document.getElementById("msg").focus();
+        if (!hasShownWelcome) {
+            addBotMessage("Hi! I can help you with admission-related questions.");
+            hasShownWelcome = true;
+        }
+    }
+}
+
+function addBotMessage(text) {
+    let botMsg = document.createElement("div");
+    botMsg.className = "message bot";
+    botMsg.innerText = text;
+    chatbox.appendChild(botMsg);
+    chatbox.scrollTop = chatbox.scrollHeight;
+}
+
+async function sendMessage() {
+    let input = document.getElementById("msg");
+    let message = input.value.trim();
+
+    if (message === "") return;
+
+    let userMsg = document.createElement("div");
+    userMsg.className = "message user";
+    userMsg.innerText = message;
+    chatbox.appendChild(userMsg);
+    chatbox.scrollTop = chatbox.scrollHeight;
+
+    let res = await fetch("/chat", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message: message })
+    });
+
+    let data = await res.json();
+    addBotMessage(data.response);
+    input.value = "";
+}
+
+function handleKey(event) {
+    if (event.key === "Enter") {
+        sendMessage();
+    }
+}
+</script>
+
+</body>
+</html>
