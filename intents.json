@@ -1,0 +1,213 @@
+{
+  "intents": [
+
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hi","hello","hey","hii","heyyy","hey there","hello bot","hi assistant","good morning","good evening"
+      ],
+      "responses": [
+        "Hello. How can I help you with admissions?",
+        "Hi. Ask me anything about college admission.",
+        "Welcome. What would you like to know?",
+        "Hello. I am your admission assistant.",
+        "Hi there. How can I guide you today?"
+      ]
+    },
+
+    {
+      "tag": "admission_start",
+      "patterns": [
+        "i want to take admission","how to take admission","start admission","apply for college",
+        "how to apply","admission kaise le","mujhe admission lena hai",
+        "how to join college","how to enroll","admission process start"
+      ],
+      "responses": [
+        "To start admission, register on the portal and fill your application form.",
+        "Begin by creating an account and submitting your application.",
+        "You can apply online by filling the form and uploading documents.",
+        "Register first, then complete your application process.",
+        "Start by filling the online admission form."
+      ]
+    },
+
+    {
+      "tag": "application_form",
+      "patterns": [
+        "how to fill form","form kaise bhare","application form help",
+        "form filling steps","form submit kaise kare","online form kaise bhare",
+        "form process kya hai","application fill karna hai",
+        "how to submit form","form instructions"
+      ],
+      "responses": [
+        "Fill the application form with correct details and submit.",
+        "Enter all required information and review before submission.",
+        "Complete your form step by step and upload documents.",
+        "Double-check your details before submitting the form.",
+        "Make sure all fields are filled correctly."
+      ]
+    },
+
+    {
+      "tag": "form_errors",
+      "patterns": [
+        "error in form","wrong details","edit form",
+        "form me mistake","form correction kaise kare",
+        "can i edit form","गलत details dal di",
+        "modify form","update form","change application"
+      ],
+      "responses": [
+        "You can edit your form before submission deadline.",
+        "Use the edit option to correct details.",
+        "Contact admission office for correction.",
+        "Try updating details from your dashboard.",
+        "Check if editing is allowed before final submission."
+      ]
+    },
+
+    {
+      "tag": "course_selection",
+      "patterns": [
+        "which course should i choose","best course","suggest course",
+        "which branch is better","cs or mechanical",
+        "mujhe konsa course lena chahiye",
+        "best branch in engineering","which field is good",
+        "what should i study","best stream"
+      ],
+      "responses": [
+        "Choose a course based on your interest and career goals.",
+        "Select a branch that matches your strengths.",
+        "Computer Science is popular but other branches are also good.",
+        "Your interest should guide your decision.",
+        "Pick a course aligned with your future plans."
+      ]
+    },
+
+    {
+      "tag": "marks_confusion",
+      "patterns": [
+        "are my marks enough","low marks admission possible",
+        "can i get admission with 60 marks",
+        "i got 65 percent","is 70 enough",
+        "marks kam hai kya","minimum marks kitne chahiye",
+        "is my score enough","cutoff kya hai","marks vs college"
+      ],
+      "responses": [
+        "Admission depends on cutoff and competition.",
+        "Even with lower marks, you have multiple options.",
+        "You can still get admission in some colleges.",
+        "Check colleges based on your score.",
+        "Marks influence options but do not limit all possibilities."
+      ]
+    },
+
+    {
+      "tag": "college_suggestion",
+      "patterns": [
+        "suggest college","which college can i get",
+        "college list","best college for me",
+        "recommend college","college options",
+        "which college is good","college suggest karo",
+        "top college for me","college batao"
+      ],
+      "responses": [
+        "Tell me your marks and interest for better suggestions.",
+        "I can suggest colleges based on your profile.",
+        "Provide your marks and preferred field.",
+        "Share your score so I can recommend colleges.",
+        "Let me know your marks and course preference."
+      ]
+    },
+
+    {
+      "tag": "campus_life",
+      "patterns": [
+        "campus life","college environment",
+        "i wanna know about campus","tell me about campus",
+        "college life kaisi hai","campus kaisa hai",
+        "student life","activities in college",
+        "campus details","college environment kaisa hai"
+      ],
+      "responses": [
+        "The campus offers a vibrant student life.",
+        "Students enjoy both academics and activities.",
+        "There are clubs, events, and engagement opportunities.",
+        "Campus life includes learning and fun.",
+        "The environment is interactive and student-friendly."
+      ]
+    },
+
+    {
+      "tag": "hostel",
+      "patterns": [
+        "hostel facility","hostel available",
+        "hostel kaise milega","room allotment",
+        "hostel details","hostel fees",
+        "stay facility","accommodation",
+        "hostel milega kya","room sharing"
+      ],
+      "responses": [
+        "Hostel facilities are available for students.",
+        "Accommodation is provided based on availability.",
+        "Rooms are allotted after admission.",
+        "Separate hostels are available.",
+        "Hostel facilities include basic amenities."
+      ]
+    },
+
+    {
+      "tag": "transport",
+      "patterns": [
+        "transport facility","bus facility",
+        "college transport","bus available",
+        "travel facility","bus route",
+        "transport kaise milega","college bus",
+        "pickup points","bus service"
+      ],
+      "responses": [
+        "Transport facilities are available with multiple routes.",
+        "College buses cover different areas.",
+        "Students can use transport services.",
+        "Bus services are provided for commuting.",
+        "Transport options are available."
+      ]
+    },
+
+    {
+      "tag": "placement",
+      "patterns": [
+        "placement","jobs after college",
+        "placement rate","companies visit campus",
+        "highest package","average package",
+        "internship","career opportunities",
+        "job opportunities","placement details"
+      ],
+      "responses": [
+        "Placement support is available for students.",
+        "Top companies visit the campus.",
+        "Placement depends on student performance.",
+        "Internship opportunities are also provided.",
+        "Students get career support and guidance."
+      ]
+    },
+
+    {
+      "tag": "ragging",
+      "patterns": [
+        "ragging policy","is ragging allowed",
+        "anti ragging rules","ragging hoti hai kya",
+        "campus safe hai kya","anti ragging policy",
+        "college safe hai kya","ragging system",
+        "student safety","security"
+      ],
+      "responses": [
+        "Ragging is strictly prohibited on campus.",
+        "The college follows strict anti-ragging policies.",
+        "Student safety is a top priority.",
+        "There is zero tolerance for ragging.",
+        "The environment is safe and secure."
+      ]
+    }
+
+  ]
+}
