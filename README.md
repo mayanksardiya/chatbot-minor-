@@ -1,16 +1,11 @@
-💬 Chatbot Widget
+💬 Chatbot Widget : Easily add a chatbot to your website with one script.
 
-Easily add a chatbot to your website with one script.
-
-🚀 Live Demo
-
-👉 https://chatbot-minor.onrender.com/
+🚀 Live Demo : https://chatbot-minor.onrender.com/
 
 📦 Usage
-
 Add this before </body>:
 
-<script
+<script>
   src="https://chatbot-minor.onrender.com/widget.js"
   data-chat-endpoint="https://chatbot-minor.onrender.com/chat"
   data-title="Chat Assistant"
@@ -20,9 +15,3 @@ Add this before </body>:
   data-bottom="20px">
 </script>
 
-✨ Features
-
-Floating chat button
-Popup chatbot UI
-Plug & play
-Customizable
